@@ -1,39 +1,45 @@
-# OOP2 #
+# OOP 2
 
+# Types of Methods: instance methods, class methods, and static methods.
 # Metot Çeşitleri: normal metotlar, classmethod ve staticmethod.
 
-#Normal metot -> Nesneye bağlıdır.                  --> "Öğrenciye ait bilgi göster."
-#Class method -> Sınıfın kendisine bağlıdır.        --> "Tüm öğrenciler aynı okulda,okul bilgisi ver."
-#Static method -> Sınıfla ilgili ama bağımsızdır.   --> "Yardımcı işlemler örneğin: kare alma,yüzdelik hesaplama vs."
+# Instance method -> Belongs to the object (instance).       --> "Show information belonging to the student."
+# Normal metot -> Nesneye bağlıdır.                          --> "Öğrenciye ait bilgi göster."
+# Class method -> Belongs to the class itself.               --> "All students are in the same school, give school info."
+# Class method -> Sınıfın kendisine bağlıdır.                --> "Tüm öğrenciler aynı okulda, okul bilgisi ver."
+# Static method -> Related to the class but independent.     --> "Helper operations, e.g., taking the square, calculating percentages, etc."
+# Static method -> Sınıfla ilgili ama bağımsızdır.           --> "Yardımcı işlemler örneğin: kare alma, yüzdelik hesaplama vs."
 
-# NORMAL METHOD
-class ogrenci:
-    def __init__(self,isim,numara):
-        self.isim = isim
-        self.numara = numara
+# INSTANCE METHOD / NORMAL METOT
+class Student:
+    def __init__(self, name, student_number):
+        self.name = name
+        self.student_number = student_number
 
-    def bilgi_goster(self): #normal metot
-        print(f"Isim: {self.isim}\nNumara: {self.numara}")
+    def show_info(self):  # Instance method / Normal metot
+        print(f"Name: {self.name}\nNumber: {self.student_number}")
 
-o1 = ogrenci("Deniz",101)
-o1.bilgi_goster()
+student1 = Student("Deniz", 101)
+student1.show_info()
 
 # CLASS METHOD
-class bisiklet:
-    bsk_renk = "Kirmizi" #sınıf değişkeni
-    def __init__(self,isim):
-        self.isim = isim
+class Bicycle:
+    bike_color = "Red"  # Class variable
+    
+    def __init__(self, name):
+        self.name = name
 
     @classmethod
-    def bsk_bilgi(cls):  #cls: class'ın kendisi
-        print(f"Bisiklet {cls.bsk_renk} renginde")
+    def show_bike_info(cls):  # cls: the class itself / cls: class'ın kendisi
+        print(f"The bicycle is {cls.bike_color}") # Bisiklet {cls.bsk_renk} renginde
 
-bisiklet.bsk_bilgi()  # Bu bisiklet kırmızı
+Bicycle.show_bike_info()  # This bicycle is red
 
 
-class Matematik:
+# STATIC METHOD
+class Mathematics:
     @staticmethod
-    def kare_al(sayi):
-        return sayi * sayi
+    def calculate_square(number):
+        return number * number
     
-print(Matematik.kare_al(5))
+print(Mathematics.calculate_square(5))

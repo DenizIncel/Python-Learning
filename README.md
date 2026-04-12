@@ -27,14 +27,14 @@ This repo is mainly for **learning and practice**, but I aim to keep it clean an
 * API Usage
 
 
-## 🛠️ Technologies
+## Technologies
 
 * Python
 * NumPy
 * Matplotlib
 * Pandas
 
-## 📈 Future Plans
+## Future Plans
 
 * Add automation scripts
 * Work with real-world data

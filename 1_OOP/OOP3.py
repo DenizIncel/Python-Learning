@@ -1,100 +1,118 @@
-# MİRAS ALMA (INHERITANCE) #
+# INHERITANCE
+# MİRAS ALMA (INHERITANCE)
 
-#Ortak özellikleri üst sınıfta tutarken alt sınıfa sadece farkları yazılır. Bu da çok fazla kolaylık sağlar.
+# Common features are kept in the parent class, while only the differences are written in the child class. This provides great convenience.
+# Ortak özellikleri üst sınıfta tutarken alt sınıfa sadece farkları yazılır. Bu da çok fazla kolaylık sağlar.
 
-class Hayvan:
-    def __init__(self,isim):
-        self.isim = isim
+class Animal:
+    def __init__(self, name):
+        self.name = name
     
-    def ses_cikar(self):
-        print("Bir hayvanin sesi...")
+    def make_sound(self):
+        print("Sound of an animal...") # Bir hayvanin sesi...
 
 
-class Kedi(Hayvan):
-    def ses_cikar(self): #override
-        print(f"{kedi.isim}: Miyav!")
+class Cat(Animal):
+    def make_sound(self): # override
+        # Fixed: using self.name instead of global variable 'kedi'
+        # Düzeltme: global 'kedi' değişkeni yerine self.name kullanıldı
+        print(f"{self.name}: Meow!") # Miyav!
 
-class Kopek(Hayvan):
-    def ses_cikar(self):
-        print(f"{kopek.isim}: Hav hav!")
-
-
-tavsan = Hayvan("Den")
-tavsan.ses_cikar()
-kedi = Kedi("Maya")
-kopek = Kopek("Karabas")
-kedi.ses_cikar()
-kopek.ses_cikar()
+class Dog(Animal):
+    def make_sound(self):
+        # Fixed: using self.name instead of global variable 'kopek'
+        # Düzeltme: global 'kopek' değişkeni yerine self.name kullanıldı
+        print(f"{self.name}: Woof woof!") # Hav hav!
 
 
-# Polimorfizm #
+rabbit = Animal("Den")
+rabbit.make_sound()
 
-class Sekil:
-    def alan(self):
+cat = Cat("Maya")
+dog = Dog("Einstein")
+
+cat.make_sound()
+dog.make_sound()
+
+
+# POLYMORPHISM
+# POLİMORFİZM (ÇOK BİÇİMLİLİK)
+
+class Shape:
+    def calculate_area(self):
         pass
 
-class Kare(Sekil):
-    def __init__(self, kenar):
-        self.kenar = kenar
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
     
-    def alan(self):
-        return self.kenar * self.kenar
+    def calculate_area(self):
+        return self.side * self.side
 
-class Daire(Sekil):
-    def __init__(self, yaricap):
-        self.yaricap = yaricap
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
     
-    def alan(self):
-        return 3.14 * self.yaricap * self.yaricap
+    def calculate_area(self):
+        return 3.14 * self.radius * self.radius
 
 
-sekiller = [Kare(4), Daire(3)]
+shapes = [Square(4), Circle(3)]
 
-for s in sekiller:
-    print(s.alan())
-
-
-# KAPSULLEME (Encapsulation) #
-
-#Nesnenin "içini" kapsülleyip sadece izin verilen yöntemlerle dışarı açar.
-# C# dilindeki gibi (private,public,protected) katı kurallar yok.Ama isimlendirme kuralları var:
-
-#Public: her yerden erişilebilir
-class Ogrenci1:
-    def __init__(self,isim,numara):
-        self.isim = isim #public
-        self.numara = numara #public
-
-#Protected: _ ile başlar. Dışardan izin verilmedikçe erişilemez.
-class Ogrenci2:
-    def __init__(self,x,y):
-        self._not = 85 #protected
-
-#Private: __ ile başlar. Python değişken adını değiştirerek gizler.
-class Ogrenci3:
-    def __init__(self,a,b):
-        self.__tc = "12345678910" #private
+for shape in shapes:
+    print(shape.calculate_area())
 
 
-# Get ve Set Metotları #   özel alanlara erişmek için kullanılır.
+# ENCAPSULATION
+# KAPSÜLLEME (ENCAPSULATION)
 
-class Ogrenci4:
-    def __init__ (self,isim,numara):
-        self.isim = isim
-        self.__numara = numara
+# It encapsulates the "insides" of the object and only exposes them through permitted methods.
+# Nesnenin "içini" kapsülleyip sadece izin verilen yöntemlerle dışarı açar.
+# There are no strict rules like (private, public, protected) in languages like C#. But there are naming conventions:
+# C# dilindeki gibi (private, public, protected) katı kurallar yok. Ama isimlendirme kuralları var:
 
-    def get_numara(self):
-        return self.__numara
+# Public: Accessible from anywhere
+# Public: her yerden erişilebilir
+class Student1:
+    def __init__(self, name, student_number):
+        self.name = name # public
+        self.student_number = student_number # public
+
+# Protected: Starts with a single underscore (_). Should not be accessed from the outside unless permitted.
+# Protected: _ ile başlar. Dışardan izin verilmedikçe erişilemez.
+class Student2:
+    def __init__(self, x, y):
+        self._grade = 85 # protected / _not
+
+# Private: Starts with double underscores (__). Python hides it by changing the variable name (name mangling).
+# Private: __ ile başlar. Python değişken adını değiştirerek gizler.
+class Student3:
+    def __init__(self, a, b):
+        self.__national_id = "12345678910" # private / __tc (TC Kimlik)
+
+
+# Get and Set Methods: Used to access special/private fields.
+# Get ve Set Metotları: Özel alanlara erişmek için kullanılır.
+
+class Student4:
+    def __init__ (self, name, student_number):
+        self.name = name
+        self.__student_number = student_number
+
+    def get_student_number(self):
+        return self.__student_number
         
-    def set_numara(self,yeninum):
-         if isinstance(yeninum,int):  #konu dışı isintance ile değişkenin türü bu mu diye sorabilirsin.
-            self.__numara = yeninum
+    def set_student_number(self, new_number):
+         # Off-topic: You can ask if the variable is of this type using isinstance.
+         # Konu dışı: isinstance ile değişkenin türü bu mu diye sorabilirsin.
+         if isinstance(new_number, int):  
+            self.__student_number = new_number
          else:
-             print("Numara sadece sayi olabilir.")
+             print("The number can only be an integer.") # Numara sadece sayi olabilir.
 
 
-o4 = Ogrenci4("Ali",105)
-print(o4.get_numara())  # Output: 105
+student4 = Student4("Ali", 105)
+print(student4.get_student_number())  # Output: 105
 
-o4.set_numara(205)
-print(o4.get_numara()) # Output: 205
+student4.set_student_number(205)
+print(student4.get_student_number()) # Output: 205

@@ -1,30 +1,40 @@
-# OOP (Nesne Tabanlo Programlama) #
+# Object-Oriented Programming (OOP)
+# OOP (Nesne Tabanlı Programlama)
 
-#Class oluşturma
-class Araba:
+# Creating a class
+# Sınıf (Class) oluşturma
+class Car:
     pass
 
-#Nesne(Object) oluşturma
-a1 = Araba()  #Araba sınıfından bir nesne oluşturduk.
-a2 = Araba()
+# Creating an object (Instantiation)
+# Nesne (Object) oluşturma
+car1 = Car()  # Created an object from the Car class. / Car sınıfından bir nesne oluşturduk.
+car2 = Car()
 
-#Özellik(Attribute) ekleme
-a1.Marka = "Toyota"
-a1.Renk = "Kirmizi"
-print(a1.Marka + " " +a1.Renk)
-#Ama bu yöntem dağınık olur. Bunun yerine sınıfa kurucu metot koyarız.
+# Adding attributes dynamically
+# Özellik (Attribute) ekleme
+car1.brand = "Toyota"
+car1.color = "Red"
+print(car1.brand + " " + car1.color)
+# But this method is messy. Instead, we use a constructor method in the class.
+# Ama bu yöntem dağınık olur. Bunun yerine sınıfa kurucu metot (constructor) koyarız.
 
 
-#Yapıcı(Constructor)  __init__ : nesne kurulumunu yapar. Nesne oluşturulduğunda otomatik çalışan özel metottur.
-class Araba2:
-    def __init__(self,marka,renk):  #self: Her sınıf metodunun ilk parametresi self olmalıdır..bu nesnenin kendisi anlamına gelir.
-        self.marka = marka  #bu arabaya ait marka demiş oluyoruz
-        self.renk = renk
+# Constructor (__init__): Initializes the object. It's a special method that runs automatically when an object is created.
+# Yapıcı (Constructor) __init__: Nesne kurulumunu yapar. Nesne oluşturulduğunda otomatik çalışan özel metottur.
+class CarV2:
+    # self: The first parameter of every class method must be self. It refers to the object itself.
+    # self: Her sınıf metodunun ilk parametresi self olmalıdır. Bu, nesnenin kendisi anlamına gelir.
+    def __init__(self, brand, color):  
+        self.brand = brand  # Assigning the brand to this specific car / Bu arabaya ait marka demiş oluyoruz
+        self.color = color
 
-# class: kimlik tasarım şablonu,init: isim,numara gibi bilgilerin yazıldığı aşamadır.
-# self:bu kimlik kime ait sorusunun cevabıdır.
 
-a3 = Araba2("BMW","Beyaz")
-a4 = Araba2("Mercedes","Siyah")
+# class: Kimlik tasarım şablonu
+# __init__: İsim, numara gibi bilgilerin yazıldığı aşamadır.
+# self: "Bu kimlik kime ait?" sorusunun cevabıdır.
 
-print(a3.marka, a3.renk)
+car3 = CarV2("BMW", "White")
+car4 = CarV2("Mercedes", "Black")
+
+print(car3.brand, car3.color)
