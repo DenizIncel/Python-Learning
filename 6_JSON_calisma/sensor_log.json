@@ -1,0 +1,17 @@
+{
+    "cihaz_id": "SENSOR_001",
+    "konum": "Fabrika_Giris",
+    "olcumler": [
+        {
+            "zaman": "10:00",
+            "sicaklik": 22.5,
+            "nem": 45
+        },
+        {
+            "zaman": "10:05",
+            "sicaklik": 23.0,
+            "nem": 46
+        }
+    ],
+    "aktif_mi": true
+}
