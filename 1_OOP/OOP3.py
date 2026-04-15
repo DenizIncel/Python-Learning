@@ -63,7 +63,6 @@ for shape in shapes:
     print(shape.calculate_area())
 
 
-# ENCAPSULATION
 # KAPSÜLLEME (ENCAPSULATION)
 
 # It encapsulates the "insides" of the object and only exposes them through permitted methods.

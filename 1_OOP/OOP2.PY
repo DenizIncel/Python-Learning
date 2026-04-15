@@ -22,6 +22,7 @@ class Student:
 student1 = Student("Deniz", 101)
 student1.show_info()
 
+
 # CLASS METHOD
 class Bicycle:
     bike_color = "Red"  # Class variable
