@@ -20,11 +20,12 @@ This repo is mainly for **learning and practice**, but I aim to keep it clean an
 * Advanced Functions
 * Data Structures
 * File Operations
-* JSON Handling
+* JSON
 * NumPy
 * Matplotlib
 * Pandas
 * API Usage
+* SQlite
 
 
 ## Technologies
@@ -33,6 +34,7 @@ This repo is mainly for **learning and practice**, but I aim to keep it clean an
 * NumPy
 * Matplotlib
 * Pandas
+* SQlite
 
 ## Future Plans
 
