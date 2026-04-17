@@ -34,7 +34,7 @@ matris = np.array([
     [4, 5, 6]
 ])
 print(f"2D Matris Boyutu: {matris.shape}")
-# Çıktı: (2, 3) -> 2 Satır, 3 Sütun.
+# Çıktı: (2, 3) = 2 Satır, 3 Sütun.
 
 # Veriye Erişmek
 # Matrisin 1. satır, 2. sütunundaki elemanı (Satır 0, Sütun 1)
