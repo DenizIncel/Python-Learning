@@ -1,13 +1,9 @@
 # OOP 2
 
 # Types of Methods: instance methods, class methods, and static methods.
-# Metot Çeşitleri: normal metotlar, classmethod ve staticmethod.
 
-# Instance method -> Belongs to the object (instance).       --> "Show information belonging to the student."
 # Normal metot -> Nesneye bağlıdır.                          --> "Öğrenciye ait bilgi göster."
-# Class method -> Belongs to the class itself.               --> "All students are in the same school, give school info."
 # Class method -> Sınıfın kendisine bağlıdır.                --> "Tüm öğrenciler aynı okulda, okul bilgisi ver."
-# Static method -> Related to the class but independent.     --> "Helper operations, e.g., taking the square, calculating percentages, etc."
 # Static method -> Sınıfla ilgili ama bağımsızdır.           --> "Yardımcı işlemler örneğin: kare alma, yüzdelik hesaplama vs."
 
 # INSTANCE METHOD / NORMAL METOT

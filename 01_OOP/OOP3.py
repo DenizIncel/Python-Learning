@@ -9,20 +9,20 @@ class Animal:
         self.name = name
     
     def make_sound(self):
-        print("Sound of an animal...") # Bir hayvanin sesi...
+        print("Sound of an animal...")
 
 
 class Cat(Animal):
     def make_sound(self): # override
-        # Fixed: using self.name instead of global variable 'kedi'
-        # Düzeltme: global 'kedi' değişkeni yerine self.name kullanıldı
-        print(f"{self.name}: Meow!") # Miyav!
+        # Fixed: using self.name instead of global variable 'cat'
+        # Düzeltme: global 'cat' değişkeni yerine self.name kullanıldı
+        print(f"{self.name}: Meow!")
 
 class Dog(Animal):
     def make_sound(self):
-        # Fixed: using self.name instead of global variable 'kopek'
-        # Düzeltme: global 'kopek' değişkeni yerine self.name kullanıldı
-        print(f"{self.name}: Woof woof!") # Hav hav!
+        # Fixed: using self.name instead of global variable 'dog'
+        # Düzeltme: global 'dog' değişkeni yerine self.name kullanıldı
+        print(f"{self.name}: Woof woof!")
 
 
 rabbit = Animal("Den")
